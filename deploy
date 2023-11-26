@@ -1,0 +1,9 @@
+scp ~/PycharmProjects/HandWrittenDigitRecognition/requirements.txt root@23.92.21.39:/var/www/flask-apps/HandWrittenDigitRecognition/.
+
+scp ~/PycharmProjects/HandWrittenDigitRecognition/main.py root@23.92.21.39:/var/www/flask-apps/HandWrittenDigitRecognition/.
+
+scp ~/PycharmProjects/HandWrittenDigitRecognition/model.h5 root@23.92.21.39:/var/www/flask-apps/HandWrittenDigitRecognition/.
+
+scp ~/PycharmProjects/HandWrittenDigitRecognition/static/js/script.js root@23.92.21.39:/var/www/flask-apps/HandWrittenDigitRecognition/static/js/.
+scp ~/PycharmProjects/HandWrittenDigitRecognition/templates/getUserInput.html root@23.92.21.39:/var/www/flask-apps/HandWrittenDigitRecognition/templates/.
+scp ~/PycharmProjects/HandWrittenDigitRecognition/templates/showResult.html root@23.92.21.39:/var/www/flask-apps/HandWrittenDigitRecognition/templates/.
