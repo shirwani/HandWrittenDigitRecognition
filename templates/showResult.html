@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <script src="static/js/script.js"></script>
+    <style>
+        #model { align: right; font-style: italic; }
+    </style>
 </head>
 <body>
     <br/><br/>
-    Detected: {{ prediction }}
+    Detected: {{ prediction }} ( {{ confidence }}% confidence )
     <br/>
     <img src="{{ image_file_path }}">
 </body>

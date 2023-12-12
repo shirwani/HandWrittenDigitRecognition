@@ -1,53 +1,41 @@
-import numpy as np
-import os
 from PIL import Image
-
-
-def image_to_matrix(image_path):
-    image = Image.open(image_path)
-    img_array = np.array(image)
-    if len(img_array.shape) == 3:
-        img_array = np.mean(img_array, axis=-1)
-
-    img_array = img_array / 255.0
-    return img_array
-
-
-def get_subfolders(directory):
-    subfolders = [os.path.join(directory, f) for f in os.listdir(directory) if os.path.isdir(os.path.join(directory, f))]
-    return subfolders
-
-
-def get_files_in_subfolder(subfolder_path):
-    files = [f.path for f in os.scandir(subfolder_path) if f.is_file()]
-    return files
-
-
-def get_file_extension(file_path):
-    _, extension = os.path.splitext(file_path)
-    return extension
+from utils import *
 
 
 if __name__ == '__main__':
-    subfolders = get_subfolders(os.getcwd() + '/training_images')
-    X = []
-    y = []
+    subfolders = get_subfolders(os.getcwd() + '/datasets/images')
+    train_X = []
+    train_y = []
+
+    cv_X = []
+    cv_y = []
 
     for d in subfolders:
         files = get_files_in_subfolder(d)
         subfolder_name = d.split('/')[-1]
-        print(subfolder_name)
+        print(f"Folder: {subfolder_name}")
+        i = 0
         for f in files:
             if get_file_extension(f) != '.png':
                 continue
-            img_array = image_to_matrix(f)
-            Xi = img_array.reshape(10000)
-            X.append(Xi)
-            y.append([int(subfolder_name)])
 
-    X = np.array(X)
-    Y = np.array(y)
+            image = Image.open(f)
+            Xi = image_to_matrix(image)
 
-    np.save('training_data/X.npy', X)
-    np.save('training_data/y.npy', y)
+            #print(f"Xi.shape: {Xi.shape}")
+
+            i += 1
+            if i % 10 == 0:
+                cv_X.append(Xi)
+                cv_y.append([int(subfolder_name)])
+            else:
+                train_X.append(Xi)
+                train_y.append([int(subfolder_name)])
+
+
+    np.save('datasets/train_X.npy', np.array(train_X))
+    np.save('datasets/train_y.npy', np.array(train_y))
+
+    np.save('datasets/cv_X.npy', np.array(cv_X))
+    np.save('datasets/cv_y.npy', np.array(cv_y))
 
