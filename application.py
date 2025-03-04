@@ -5,14 +5,19 @@ from PIL import Image
 import io
 import base64
 from utils import *
+import sys
 
 
 cfg = get_configs()
 #num_px    = cfg['image']['mnist']['num_px']
 #modelname = cfg['model']['mnist']['file']
-num_px = cfg['image']['manual']['num_px']
-modelname = cfg['model']['manual']['file']
 
+if len(sys.argv) > 1:
+    modelname = sys.argv[1]
+else:
+    modelname = cfg['model']['manual']['file']
+
+num_px = cfg['image']['manual']['num_px']
 app = Flask(__name__)
 
 
