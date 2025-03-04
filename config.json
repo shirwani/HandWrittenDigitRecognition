@@ -1,0 +1,45 @@
+{
+    "image": {
+        "mnist": {
+            "num_px": 28
+        },
+        "manual": {
+            "num_px": 100
+        }
+    },
+    "training": {
+        "data_file": "",
+        "log_file": "training.log",
+        "mnist": {
+            "data_path": "./datasets/mnist.npz",
+            "epochs": 500,
+            "batch_size": 64,
+            "validation_split": 0.2
+        },
+        "manual": {
+            "X_file_path": "./datasets/train_X.npy",
+            "y_file_path": "./datasets/train_y.npy",
+            "learning_rate": 0.0001,
+            "regularizer": 0.025,
+            "epochs": 500
+        }
+    },
+    "cv": {
+        "manual": {
+            "X_file_path": "./datasets/cv_X.npy",
+            "y_file_path": "./datasets/cv_y.npy"
+        }
+    },
+    "model": {
+        "manual": {
+            "file": "m_20250304125009.keras"
+        },
+        "mnist": {
+            "file": "mnist_20231208185009.h5"
+        }
+    },
+    "flask-app": {
+        "port": 5002
+    },
+    "temp_file_path": "./static/images/image.png"
+}
