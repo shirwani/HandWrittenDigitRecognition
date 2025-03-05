@@ -83,5 +83,10 @@ python3 -m venv venv
 source venv/bin/activate
 pkill -f HandWrittenDigitRecognition
 # python application.py
-nohup gunicorn -b 127.0.0.1:5002 application:app > /dev/null 2>&1 &
+
+# Get model name from config.json
+# nohup gunicorn -b 127.0.0.1:5002 application:app > /dev/null 2>&1 &
+
+# Get modelname from environment variable
+MODEL="m_20250304205801.keras" nohup gunicorn -b 127.0.0.1:5002 application:app > /dev/null 2>&1 &
 

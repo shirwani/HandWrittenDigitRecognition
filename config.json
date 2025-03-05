@@ -32,7 +32,7 @@
     },
     "model": {
         "manual": {
-            "file": "m_20250304125009.keras"
+            "file": "m_20250304105001.keras"
         },
         "mnist": {
             "file": "mnist_20231208185009.h5"
