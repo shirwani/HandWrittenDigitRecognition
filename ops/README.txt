@@ -14,20 +14,20 @@ pip install -r requirements.txt
 # COPYING TRAINING FILES FROM LOCAL -> TRAINING SERVER
 ######################################################
 ./ops/copy-files-to-training-server
-    # mkdir -p /root/HandWrittenDigitRecognition/datasets
-    # mkdir -p /root/HandWrittenDigitRecognition/ops
-    # mkdir -p /root/HandWrittenDigitRecognition/models
-    # scp ./HandWrittenDigitRecognition/training.py          -> /root/HandWrittenDigitRecognition/.
-    # scp ./HandWrittenDigitRecognition/testing.py           -> /root/HandWrittenDigitRecognition/.
-    # scp ./HandWrittenDigitRecognition/utils.py             -> /root/HandWrittenDigitRecognition/.
-    # scp ./HandWrittenDigitRecognition/requirements.txt     -> /root/HandWrittenDigitRecognition/.
-    # scp ./HandWrittenDigitRecognition/datasets/mnist.npz   -> /root/HandWrittenDigitRecognition/datasets/.
-    # scp ./HandWrittenDigitRecognition/datasets/train_X.npy -> /root/HandWrittenDigitRecognition/datasets/.
-    # scp ./HandWrittenDigitRecognition/datasets/train_y.npy -> /root/HandWrittenDigitRecognition/datasets/.
-    # scp ./HandWrittenDigitRecognition/datasets/cv_X.npy    -> /root/HandWrittenDigitRecognition/datasets/.
-    # scp ./HandWrittenDigitRecognition/datasets/cv_y.npy    -> /root/HandWrittenDigitRecognition/datasets/.
-    # scp ./HandWrittenDigitRecognition/config.json          -> /root/HandWrittenDigitRecognition/.
-    # scp ./HandWrittenDigitRecognition/ops/deploy-model     -> /root/HandWrittenDigitRecognition/ops/.
+    # ssh root@<TRAINING_SERVER> 'mkdir -p /root/HandWrittenDigitRecognition/datasets'
+    # ssh root@<TRAINING_SERVER> 'mkdir -p /root/HandWrittenDigitRecognition/ops'
+    # ssh root@<TRAINING_SERVER> 'mkdir -p /root/HandWrittenDigitRecognition/models'
+    # scp ./training.py          root@<TRAINING_SERVER>:/root/HandWrittenDigitRecognition/.
+    # scp ./testing.py           root@<TRAINING_SERVER>:/root/.
+    # scp ./utils.py             root@<TRAINING_SERVER>:/root/.
+    # scp ./requirements.txt     root@<TRAINING_SERVER>:/root/HandWrittenDigitRecognition/.
+    # scp ./datasets/mnist.npz   root@<TRAINING_SERVER>:/root/HandWrittenDigitRecognition/datasets/.
+    # scp ./datasets/train_X.npy root@<TRAINING_SERVER>:/root/HandWrittenDigitRecognition/datasets/.
+    # scp ./datasets/train_y.npy root@<TRAINING_SERVER>:/root/HandWrittenDigitRecognition/datasets/.
+    # scp ./datasets/cv_X.npy    root@<TRAINING_SERVER>:/root/HandWrittenDigitRecognition/datasets/.
+    # scp ./datasets/cv_y.npy    root@<TRAINING_SERVER>:/root/HandWrittenDigitRecognition/datasets/.
+    # scp ./config.json          root@<TRAINING_SERVER>:/root/HandWrittenDigitRecognition/.
+    # scp ./ops/deploy-model     root@<TRAINING_SERVER>:/root/HandWrittenDigitRecognition/ops/.
 
 
 #########################################
@@ -41,7 +41,7 @@ python training.py
 ############################################################################
 cd ~/HandWrittenDigitRecognition
 ./ops/copy-models-to-app-server
-    # scp ./models/* -> /var/www/flask-apps/HandWrittenDigitRecognition/models/.
+    # scp ./models/* root@<APPLICATION_SERVER>:/var/www/flask-apps/HandWrittenDigitRecognition/models/.
 
 
 ##########################
@@ -64,17 +64,17 @@ pip install -r requirements.txt
 # COPYING FILES FROM LOCAL -> APPLICATION SERVER
 ################################################
 ./ops/copy-files-to-app-server
-    # mkdir -p /var/www/flask-apps/HandWrittenDigitRecognition/models
-    # mkdir -p /var/www/flask-apps/HandWrittenDigitRecognition/templates
-    # mkdir -p /var/www/flask-apps/HandWrittenDigitRecognition/static/js
-    # mkdir -p /var/www/flask-apps/HandWrittenDigitRecognition/static/images
-    # scp ./application.py                -> /var/www/flask-apps/HandWrittenDigitRecognition/.
-    # scp ./utils.py                      -> /var/www/flask-apps/HandWrittenDigitRecognition/.
-    # scp ./static/js/script.js           -> /var/www/flask-apps/HandWrittenDigitRecognition/static/js/.
-    # scp ./templates/getUserInput.html   -> /var/www/flask-apps/HandWrittenDigitRecognition/templates/.
-    # scp ./templates/showResult.html     -> /var/www/flask-apps/HandWrittenDigitRecognition/templates/.
-    # scp ./requirements.txt              -> /var/www/flask-apps/HandWrittenDigitRecognition/.
-    # scp ./config.json                   -> /var/www/flask-apps/HandWrittenDigitRecognition/.
+    # ssh root@<APPLICATION_SERVER> 'mkdir -p /var/www/flask-apps/HandWrittenDigitRecognition/models'
+    # ssh root@<APPLICATION_SERVER> 'mkdir -p /var/www/flask-apps/HandWrittenDigitRecognition/templates'
+    # ssh root@<APPLICATION_SERVER> 'mkdir -p /var/www/flask-apps/HandWrittenDigitRecognition/static/js'
+    # ssh root@<APPLICATION_SERVER> 'mkdir -p /var/www/flask-apps/HandWrittenDigitRecognition/static/images'
+    # scp ./application.py                root@<APPLICATION_SERVER>:/var/www/flask-apps/HandWrittenDigitRecognition/.
+    # scp ./utils.py                      root@<APPLICATION_SERVER>:/var/www/flask-apps/HandWrittenDigitRecognition/.
+    # scp ./static/js/script.js           root@<APPLICATION_SERVER>:/var/www/flask-apps/HandWrittenDigitRecognition/static/js/.
+    # scp ./templates/getUserInput.html   root@<APPLICATION_SERVER>:/var/www/flask-apps/HandWrittenDigitRecognition/templates/.
+    # scp ./templates/showResult.html     root@<APPLICATION_SERVER>:/var/www/flask-apps/HandWrittenDigitRecognition/templates/.
+    # scp ./requirements.txt              root@<APPLICATION_SERVER>:/var/www/flask-apps/HandWrittenDigitRecognition/.
+    # scp ./config.json                   root@<APPLICATION_SERVER>:/var/www/flask-apps/HandWrittenDigitRecognition/.
 
 ###################################################
 # RUNNING THE APPLICATION ON THE APPLICATION SERVER
