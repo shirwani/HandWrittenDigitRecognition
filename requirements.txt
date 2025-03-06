@@ -12,8 +12,8 @@ grpcio==1.70.0
 h5py==3.13.0
 idna==3.10
 itsdangerous==2.2.0
-Jinja2==3.1.5
-keras==3.8.0
+Jinja2==3.1.6
+keras==3.9.0
 libclang==18.1.1
 Markdown==3.7
 markdown-it-py==3.0.0

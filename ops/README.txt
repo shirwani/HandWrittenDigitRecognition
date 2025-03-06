@@ -29,6 +29,7 @@ pip install -r requirements.txt
     # scp ./HandWrittenDigitRecognition/config.json          -> /root/HandWrittenDigitRecognition/.
     # scp ./HandWrittenDigitRecognition/ops/deploy-model     -> /root/HandWrittenDigitRecognition/ops/.
 
+
 #########################################
 # RUNNING TRAINING ON THE TRAINING SERVER
 #########################################
